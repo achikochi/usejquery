@@ -5,7 +5,7 @@
   <head profile="http://gmpg.org/xfn/11">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
-    <title><%= h(yield(:title) || "Untitled") %></title>
+    <title>Use jQuery - <%= h(yield(:title)) %></title>
     
     <%= stylesheet_link_tag "reset", "application" %>
     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js", "application" %>
@@ -15,33 +15,13 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <a href="index.html" id="logo">Use jQuery - Community Showcase</a>
-        <div id="switch">
-          <a href="index.html" class="active">Community Showcase</a>
-          <a href="blog.html">Blog</a>
-        </div>
+        <%= link_to "Use jQuery - Community Showcase", root_path, :id => "logo" %>
         
-        <div id="user">
-          <a href="register.html" id="join">Join</a>
-          <span>or</span><a href="#login" id="login" class="textlink">log in</a>
-          
-          <div id="loginbox">
-            <a href="#close">Close</a>
-            
-            <form>
-              <div>
-                <input type="text" class="blur" value="Username">
-              </div>
-              <div>
-                <input type="password" class="blur" value="Password">
-              </div>
-              <div class="last">
-                <input type="checkbox" id="remember"> <label for="remember">Remember Me</label>
-                <input type="submit" value="Log In">
-              </div>
-            </form>
-          </div>
-        </div>
+        <% if request.path_parameters["controller"] == "posts" %>
+          <%= render "partials/header_blog" %>
+        <% else %>
+          <%= render "partials/header_showcase" %>
+        <% end %>
       </div> <!-- #header end -->
       
       <% flash.each do |name, msg| %>

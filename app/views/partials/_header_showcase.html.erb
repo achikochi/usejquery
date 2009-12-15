@@ -1,0 +1,26 @@
+<div id="switch">
+  <%= link_to "Community Showcase", root_path, :class => "active" %>
+  <%= link_to "Blog", blog_path %>
+</div>
+
+<div id="user">
+  <a href="register.html" id="join">Join</a>
+  <span>or</span><a href="#login" id="login" class="textlink">log in</a>
+  
+  <div id="loginbox">
+    <a href="#close">Close</a>
+    
+    <form>
+      <div>
+        <input type="text" class="blur" value="Username">
+      </div>
+      <div>
+        <input type="password" class="blur" value="Password">
+      </div>
+      <div class="last">
+        <input type="checkbox" id="remember"> <label for="remember">Remember Me</label>
+        <input type="submit" value="Log In">
+      </div>
+    </form>
+  </div>
+</div>
