@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: post_categorizations
+#
+#  id               :integer         not null, primary key
+#  post_id          :integer
+#  post_category_id :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe PostCategorization do
