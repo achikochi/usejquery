@@ -9,6 +9,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   config.gem 'cldwalker-hirb', :lib => 'hirb', :source => 'http://gems.github.com'
   config.gem 'less'
+  config.gem 'formtastic', :source => 'http://gemcutter.org'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
