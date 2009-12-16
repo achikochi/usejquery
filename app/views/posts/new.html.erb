@@ -1,0 +1,14 @@
+<% title "New Blog Post" %>
+
+<div id="blog_new_post">
+  <% semantic_form_for @post do |f| %>
+    <% f.inputs do %>
+      <%= f.input :title %>
+      <%= f.input :excerpt %>
+      <%= f.input :content %>
+      <%= f.input :published %>
+    <% end %>
+    
+    <%= f.buttons %>
+  <% end %>
+</div>

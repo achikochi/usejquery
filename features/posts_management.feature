@@ -10,5 +10,5 @@ Feature: Posts management
     And I fill in "Excerpt" with "This is a example post."
     And I fill in "Content" with "Whatever the content is about."
     And I check "Published"
-    And I press "Publish"
+    And I press "Create Post"
     Then I should see "Example Post"
