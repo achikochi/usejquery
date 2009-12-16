@@ -7,6 +7,16 @@ $(document).ready(function() {
   });
   
   
+  //if flash exist hide it after a delay
+  if($('.flash').length) {
+    setTimeout(function() {
+      $('.flash').animate({ 'height' : '0', 'opacity' : '0.2' }, 300, function() {
+        $(this).remove();
+      });
+    }, 2000);
+  }
+  
+  
   //toggle login box
   var login_link = $('#login');
   var login_box = $('#loginbox');

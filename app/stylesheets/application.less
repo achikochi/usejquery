@@ -1,6 +1,8 @@
 /* compile with http://lesscss.org/ */
 
 @dark-blue: #0b1822;
+@blue: #61aeda;
+
 
 html { font-size: 16px; }
 body { font-size: 62.5%; font-family: Helvetica, Arial, sans-serif; background: url(../images/bg.jpg) repeat-x; color: @dark-blue; text-align: center; overflow-x: hidden; }
@@ -14,7 +16,19 @@ input[type="text"], input[type="password"], textarea { color: #bebebe; }
 .focus { color: @dark-blue; }
 
 
-#wrapper { width: 960px; margin: auto; text-align: left; }
+
+//! remove me once the showcase is online
+#coming { position: absolute; .blockbg; background: url(../images/coming.png); width: 199px; height: 42px; top: 81px; }
+
+
+.flash { position: absolute; top: 82px; right: 0; overflow: hidden; text-shadow: 1px 1px 0 white; border-radius-bottomleft: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-radius-bottomright: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px;
+  p { font-size: 1.3em; padding: 10px 30px 10px 30px; }
+}
+#flash-notice { background: #CFECC1; }
+#flash-error { background: #e77575; text-shadow: 1px 1px 0 #f69697; }
+
+
+#wrapper { width: 960px; margin: auto; text-align: left; position: relative; }
 
 
 #header { min-height: 113px; background: url(../images/header_shadow.jpg) left bottom no-repeat; position: relative;
@@ -307,6 +321,20 @@ ul.sitecats { line-height: 28px; padding-right: 16px;
     .read_more { text-align: right; font-size: 1.3em; padding: 20px 3px 5px 0;
       a { color: #565656; }
       a:hover { color: @dark-blue; }
+    }
+  }
+}
+
+
+#admin_login { text-align: center; padding-top: 200px;
+  form { background: #eeeeee; padding: 20px; width: 500px; margin: auto; text-align: left; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px;
+    div { width: 230px; float: left; padding: 10px;
+      label { display: block; font-size: 1.4em; margin-bottom: 6px; color: #565656; text-shadow: 1px 1px white; }
+      input { width: 200px; padding: 10px; }
+      input:focus { border: 2px solid @blue; color: @dark-blue; }
+    }
+    div.submit { float: none; clear: both; width: 480px; text-align: right; padding-top: 20px;
+      input { width: auto; }
     }
   }
 }

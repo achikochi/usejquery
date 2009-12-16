@@ -1,13 +1,17 @@
-<% form_tag admin_sessions_path do %>
-  <div>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
-  </div>
-  <div>
-    <%= label_tag :password %>
-    <%= text_field_tag :password %>
-  </div>
-  <div>
-    <%= submit_tag "Login" %>
-  </div>
-<% end %>
+<% title "Admin Login" %>
+
+<div id="admin_login">
+  <% form_tag admin_sessions_path do %>
+    <div>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+    </div>
+    <div>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="submit">
+      <%= submit_tag "Login" %>
+    </div>
+  <% end %>
+</div>
