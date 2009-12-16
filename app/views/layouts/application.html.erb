@@ -26,13 +26,9 @@
       
       <% flash.each do |name, msg| %>
         <div id="flash-<%= name %>" class="flash">
-          <%= msg %>
+          <p><%= msg %></p>
         </div>
       <% end %>
-      
-      <div id="flash-error" class="flash">
-        <p>Unauthorized access</p>
-      </div>
       
       <%= yield %>
       
