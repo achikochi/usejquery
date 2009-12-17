@@ -331,10 +331,40 @@ ul.sitecats { line-height: 28px; padding-right: 16px;
     div { width: 230px; float: left; padding: 10px;
       label { display: block; font-size: 1.4em; margin-bottom: 6px; color: #565656; text-shadow: 1px 1px white; }
       input { width: 200px; padding: 10px; }
-      input:focus { border: 2px solid @blue; color: @dark-blue; }
+      input[type="text"]:focus, input[type="password"]:focus { border: 2px solid @blue; color: @dark-blue; }
     }
     div.submit { float: none; clear: both; width: 480px; text-align: right; padding-top: 20px;
       input { width: auto; }
     }
+  }
+}
+
+
+.formtastic { background: #eeeeee;
+  li { border-top: 1px solid #f9f9f9; border-bottom: 1px solid #d0cfcf; padding: 16px;
+    label { font-size: 1.6em; display: block; color: #565656; text-shadow: 1px 1px 0 white; margin-bottom: 8px; }
+    input[type="text"], textarea { width: 100%; }
+    input[type="text"]:focus, textarea { color: @dark-blue; }
+    
+    ol li label { font-size: 1.35em; cursor: pointer; display: inline; }
+  }
+  li:first-child { border-top: none; }
+  li:last-child { border-bottom: none; }
+  
+  li.boolean label { font-size: 1.35em; cursor: pointer; display: inline;
+    input { padding-right: 10px; }
+  }
+  
+  .buttons ol { text-align: right;
+    input { cursor: pointer; }
+  }
+}
+
+
+#blog_new_post { padding: 70px 0 20px 0;
+  form { width: 560px; position: relative;
+    .buttons { position: absolute; right: 0; bottom: 0; }
+    
+    #post_excerpt { height: 60px; }
   }
 }
