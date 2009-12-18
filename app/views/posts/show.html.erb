@@ -1,8 +1,15 @@
 <% title @post.title %>
 
-<h1><%=h @post.title %></h1>
+<div id="blog_index">
+  <div class="entry">
+    <h1><a href="<%= url_for(post_path(@post)) %>/<%= @post.slug %>">weekQuery #32: Validation, Custimisation and Inspiration</a></h1>
+    <div class="meta">Posted about 13 days ago, 30th June 2009.</div>
+    
+    <div class="content">
+      <%= @post.excerpt %>
+      <%= @post.content %>
+    </div>
+  </div><!-- .entry end -->
+</div> <!-- #blog_index end -->
 
-Categories:
-<% @post.categories.each do |category| %>
-  <%=h category.name %>
-<% end %>
+<%= render "sidebar" %>

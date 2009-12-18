@@ -10,6 +10,7 @@ Rails::Initializer.run do |config|
   config.gem 'cldwalker-hirb', :lib => 'hirb', :source => 'http://gems.github.com'
   config.gem 'less'
   config.gem 'formtastic', :source => 'http://gemcutter.org'
+  config.gem 'stringex'
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
