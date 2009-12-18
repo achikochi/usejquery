@@ -340,13 +340,18 @@ ul.sitecats { line-height: 28px; padding-right: 16px;
 }
 
 
-.formtastic { background: #eeeeee;
-  li { border-top: 1px solid #f9f9f9; border-bottom: 1px solid #d0cfcf; padding: 16px;
+.formtastic { background: #eeeeee; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px;
+  li { border-top: 1px solid #f9f9f9; border-bottom: 1px solid #d0cfcf; padding: 16px; position: relative;
     label { font-size: 1.6em; display: block; color: #565656; text-shadow: 1px 1px 0 white; margin-bottom: 8px; }
-    input[type="text"], textarea { width: 100%; }
+    
+    input[type="text"], textarea { width: 100%; border: 1px solid #dddddd; padding: 3px 0 3px 0; }
     input[type="text"]:focus, textarea { color: @dark-blue; }
     
-    ol li label { font-size: 1.35em; cursor: pointer; display: inline; }
+    .inline-errors { position: absolute; top: 44px; right: 17px; background: #e77575; display: inline; padding: 2px 20px 2px 20px; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
+    
+    ol li { border: none; padding: 2px;
+      label { font-size: 1.35em; cursor: pointer; display: inline; } 
+    }
   }
   li:first-child { border-top: none; }
   li:last-child { border-bottom: none; }
@@ -361,10 +366,16 @@ ul.sitecats { line-height: 28px; padding-right: 16px;
 }
 
 
-#blog_new_post { padding: 70px 0 20px 0;
-  form { width: 560px; position: relative;
+#blog_new_post { margin: 70px 0 20px 0;
+  form#new_post { width: 560px; position: relative; float: left; margin-bottom: 20px;
     .buttons { position: absolute; right: 0; bottom: 0; }
     
     #post_excerpt { height: 60px; }
+  }
+  
+  #post_options { width: 340px; float: left; padding: 20px 0 20px 60px;
+    li {
+      h3 { font-size: 1.8em; margin-bottom: 16px; }
+    }
   }
 }

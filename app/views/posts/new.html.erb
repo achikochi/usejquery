@@ -12,4 +12,14 @@
     
     <%= f.buttons %>
   <% end %>
+  
+  <ul id="post_options">
+    <li>
+      <h3>Create new Category</h3>
+      <% semantic_form_for @post_category do |f| %>
+        <%= f.inputs %>
+        <%= f.buttons %>
+      <% end %>
+    </li>
+  </ul>
 </div>

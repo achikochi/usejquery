@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.blog "blog", :controller => "posts"
   map.resources :posts
+  map.resources :post_categories
   
   map.admin_login "admin", :controller => "admin_sessions", :action => "new"
   map.admin_logout "admin/logout", :controller => "admin_sessions", :action => "destroy"

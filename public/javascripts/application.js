@@ -250,4 +250,37 @@ $(document).ready(function() {
   }, function() {
     $(this).stop().animate({'left' : '0'}, 300);
   });
+  
+  
+  //ajaxifiy post category form
+  $('#new_post_category').submit(function() {
+    var new_post_form = $(this);
+    var new_cat_input = $('#post_category_name');
+    var new_cat_name = new_cat_input.val();
+    
+    if(new_cat_name) {
+      $.ajax({
+        type    : 'POST',
+        url     : new_post_form.attr('action'),
+        data    : new_post_form.serialize(),
+        success : function() {
+          var categories_list = $('#post_categories_input ol');
+
+          categories_list.append('<li>'+categories_list.children('li:last').html()+'</li>');
+
+          var new_li = categories_list.children('li:last');
+          var new_label = new_li.children('label');
+          var new_num = parseInt(new_li.children('label').attr('for').substr(18)) + 1;
+          var new_id = 'post_category_ids_'+new_num;
+
+          new_label.attr('for', new_id).children('input[type="checkbox"]').attr('id', new_id).val(new_num);
+          new_label.html(new_label.html().substr(0, new_label.html().indexOf('"> ')+3) + ' ' + new_cat_name);
+          
+          new_cat_input.val('');
+        }
+      });
+    }
+    
+    return false;
+  });
 });

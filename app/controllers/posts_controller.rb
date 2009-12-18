@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @post_category = PostCategory.new
   end
   
   def create
