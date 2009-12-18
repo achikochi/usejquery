@@ -36,5 +36,9 @@
         Showcase Coming early 2010!
       </div>
     </div> <!-- #wrapper end -->
+    
+    <% if admin? %>
+      <%= render "partials/admin_controls" %>
+    <% end %>
   </body>
 </html>

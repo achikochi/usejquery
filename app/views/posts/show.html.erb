@@ -6,6 +6,7 @@
     <div class="meta">
       Posted <%= time_ago_in_words(@post.created_at) %>, <%= @post.created_at.strftime("%e. %B %Y") %>.
       In <%= @post.categories.collect{|c| link_to(c.name, post_category_slug_path(c.id, c.slug)) + ", "}.to_s.chop.chop %>.
+      <% if admin? %><%= link_to "Edit", edit_post_path(@post) %>.<% end %>
     </div>
     
     <div class="content">
