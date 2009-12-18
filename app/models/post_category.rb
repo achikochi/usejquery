@@ -13,4 +13,8 @@ class PostCategory < ActiveRecord::Base
   has_many :posts, :through => :post_categorizations
   
   validates_presence_of :name
+  
+  def slug
+    name.to_url
+  end
 end

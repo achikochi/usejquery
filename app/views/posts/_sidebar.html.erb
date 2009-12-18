@@ -12,19 +12,18 @@
     <li class="categories">
       <h3>Categories</h3>
       <ul>
-        <li><a href="#">Roundup</a></li>
-        <li><a href="#">Tutorial</a></li>
-        <li><a href="#">Site Review</a></li>
-        <li><a href="#">Tipps &amp; Tricks</a></li>
+        <% @post_categories.each do |post_category| %>
+          <li><%= link_to post_category.name, post_category_slug_path(post_category.id, post_category.slug) %></li>
+        <% end %>
       </ul>
       <div class="clear"></div>
     </li>
     <li class="latest_posts">
       <h3>Latest Posts</h3>
       <ul>
-        <li><a href="#">This is an Example Post</a></li>
-        <li><a href="#">And another Post which has a long long title</a></li>
-        <li><a href="#">weekQuery #32: Validation, Custimisation and Inspiration</a></li>
+        <% @latest_posts.each do |post| %>
+          <li><%= link_to post.title, post_slug_path(post.id, post.slug) %></li>
+        <% end %>
       </ul>
     </li>
   </ul>

@@ -1,12 +1,16 @@
 <% title @post.title %>
 
-<div id="blog_index">
+<div id="blog_single">
   <div class="entry">
-    <h1><a href="<%= url_for(post_path(@post)) %>/<%= @post.slug %>">weekQuery #32: Validation, Custimisation and Inspiration</a></h1>
-    <div class="meta">Posted about 13 days ago, 30th June 2009.</div>
+    <h1><%= link_to @post.title, post_slug_path(@post.id, @post.slug) %></h1>
+    <div class="meta">
+      Posted <%= time_ago_in_words(@post.created_at) %>, <%= @post.created_at.strftime("%e. %B %Y") %>.
+      In <%= @post.categories.collect{|c| link_to(c.name, post_category_slug_path(c.id, c.slug)) + ", "}.to_s.chop.chop %>.
+    </div>
     
     <div class="content">
-      <%= @post.excerpt %>
+      <p class="excerpt"><%= @post.excerpt %></p>
+      
       <%= @post.content %>
     </div>
   </div><!-- .entry end -->

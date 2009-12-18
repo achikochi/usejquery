@@ -18,6 +18,6 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :excerpt, :content
   
   def slug
-    title.downcase
+    title.to_url
   end
 end
