@@ -8,9 +8,28 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new params[:post]
+    @post_category = PostCategory.new
     
     if @post.save
       flash[:notice] = "Successfully created Post"
+      redirect_to @post
+    else
+      render :action => "new"
+    end
+  end
+  
+  def edit
+    @post = Post.find params[:id]
+    @post_category = PostCategory.new
+    render :action => "new"
+  end
+  
+  def update
+    @post = Post.find params[:id]
+    @post_category = PostCategory.new
+    
+    if @post.update_attributes params[:post]
+      flash[:notice] = "Successfully updated Post"
       redirect_to @post
     else
       render :action => "new"
@@ -25,5 +44,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.find :all
+    @post_categories = PostCategory.all
+    @latest_posts = Post.find :all, :limit => 7, :order => "created_at DESC"
   end
 end

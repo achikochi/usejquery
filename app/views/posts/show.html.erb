@@ -1,10 +1,10 @@
-<% title @post.title %>
+<% title "Blog - #{@post.title}" %>
 
 <div id="blog_single">
   <div class="entry">
-    <h1><%= link_to @post.title, post_slug_path(@post.id, @post.slug) %></h1>
+    <h1><%= @post.title %></h1>
     <div class="meta">
-      Posted <%= time_ago_in_words(@post.created_at) %>, <%= @post.created_at.strftime("%e. %B %Y") %>.
+      Posted <%= time_ago_in_words(@post.created_at) %> ago, <%= @post.created_at.strftime("%e. %B %Y") %>.
       In <%= @post.categories.collect{|c| link_to(c.name, post_category_slug_path(c.id, c.slug)) + ", "}.to_s.chop.chop %>.
       <% if admin? %><%= link_to "Edit", edit_post_path(@post) %>.<% end %>
     </div>
@@ -15,6 +15,6 @@
       <%= @post.content %>
     </div>
   </div><!-- .entry end -->
-</div> <!-- #blog_index end -->
+</div> <!-- #blog_single end -->
 
 <%= render "sidebar" %>

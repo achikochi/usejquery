@@ -21,3 +21,10 @@ Feature: Posts management
     When I go to path "/posts/new"
     And I press "Create Post"
     Then I should see "can't be blank"
+    
+  Scenario: Non-Admin wants to add a blog post
+    Given I am not logged in as admin
+    When I go to path "/posts/new"
+    Then I should see "Unauthorized access"
+    
+  
