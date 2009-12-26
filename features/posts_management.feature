@@ -27,4 +27,14 @@ Feature: Posts management
     When I go to path "/posts/new"
     Then I should see "Unauthorized access"
     
+  Scenario: Can't preview a unpublished post as non-admin
+    Given I am not logged in as admin
+    And a post exists with title: "Not published", published: false
+    When I go to the show page for that post
+    Then I should see "404"
   
+  Scenario: Admin can preview a post
+    Given I am logged in as admin
+    And a post exists with title: "Preview me", published: false
+    When I go to the show page for that post
+    Then I should see "Preview me"
