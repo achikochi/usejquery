@@ -1,0 +1,26 @@
+<div id="blog_index">
+  <% @posts.each do |post| %>
+    <% if post.published || admin? %>
+      <div class="entry">
+        <h1><% unless post.published? %>[PREVIEW] <% end %><%= link_to post.title, post_slug_path(post.id, post.slug) %></h1>
+        <div class="meta">
+          Posted <%= time_ago_in_words(post.created_at) %> ago, <%= post.created_at.strftime("%e. %B %Y") %>.
+          In <%= post.categories.collect{|c| link_to(c.name, post_category_slug_path(c.id, c.slug)) + ", "}.to_s.chop.chop %>.
+          <% if admin? %><%= link_to "Edit", edit_post_path(post) %>.<% end %>
+        </div>
+
+        <div class="content">
+          <p class="excerpt"><%= post.excerpt %></p>
+        </div>
+      
+        <div class="read_more">
+          <%= link_to "Read More &raquo;", post_slug_path(post.id, post.slug) %>
+        </div>
+      </div><!-- .entry end -->
+    <% end %>
+  <% end %>
+  
+  <%= will_paginate @posts %>
+</div>
+
+<%= render "posts/sidebar" %>

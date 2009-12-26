@@ -17,7 +17,7 @@
       <div id="header">
         <%= link_to "Use jQuery - Community Showcase", root_path, :id => "logo" %>
         
-        <% if request.path_parameters["controller"] == "posts" %>
+        <% if request.path_parameters["controller"] == "posts" || request.path_parameters["controller"] == "post_categories" %>
           <%= render "partials/header_blog" %>
         <% else %>
           <%= render "partials/header_showcase" %>

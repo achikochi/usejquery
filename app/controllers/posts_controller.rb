@@ -53,6 +53,6 @@ class PostsController < ApplicationController
   
   def prepare_sidebar
     @post_categories = PostCategory.all
-    @latest_posts = Post.find :all, :limit => 7, :order => "created_at DESC"
+    @latest_posts = Post.find :all, :limit => 7, :order => "created_at DESC", :conditions => ["published = ?", true]
   end
 end
