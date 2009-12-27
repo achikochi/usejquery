@@ -6,7 +6,7 @@
   
   <% form_for @search, :url => { :controller => "posts" } do |f| %>
     <div>
-      <%= f.text_field :title_like, :value => search_value %>
+      <%= f.text_field :title_like_or_excerpt_like_or_content_like, :value => search_value %>
     </div>
   <% end %>
   
