@@ -177,8 +177,11 @@ ul.sitecats { line-height: 28px; padding-right: 16px;
       }
     }
     
-    li.categories ul li { float: left;
-      a { background: #e3e2e2; padding: 0; display: block; text-align: center; width: 99px; margin: 0 3px 3px 0; text-shadow: 1px 1px 0 white; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; overflow: hidden; }
+    li.categories ul {
+      li { float: left;
+        a { background: #e3e2e2; padding: 0; display: block; text-align: center; width: 99px; margin: 0 3px 3px 0; text-shadow: 1px 1px 0 white; border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; overflow: hidden; }
+      }
+      li.active a { background: #61aeda; color: black; text-shadow: 1px 1px 0 #7dcbf7; }
     }
     
     li.latest_posts ul li { line-height: 18px; margin-bottom: 8px; padding-left: 20px; background: url(../images/sidebar_bullet.png) no-repeat; background-position: 0 3px;

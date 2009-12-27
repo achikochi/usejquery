@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
       false
     end
   end
+  
+  def prepare_blog_sidebar
+    @post_categories = PostCategory.find :all, :order => "name ASC"
+    @latest_posts = Post.find :all, :limit => 7, :order => "created_at DESC", :conditions => ["published = ?", true]
+  end
 end

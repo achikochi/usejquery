@@ -13,7 +13,9 @@
       <h3>Categories</h3>
       <ul>
         <% @post_categories.each do |post_category| %>
-          <li><%= link_to post_category.name, post_category_slug_path(post_category.id, post_category.slug) %></li>
+          <li<%= is_active?(@post_category, post_category) %>>
+            <%= link_to post_category.name, post_category_slug_path(post_category.id, post_category.slug) %>
+          </li>
         <% end %>
       </ul>
       <div class="clear"></div>

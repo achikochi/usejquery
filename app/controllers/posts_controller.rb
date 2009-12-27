@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authorize_admin, :except => ["index", "show"]
-  before_filter :prepare_sidebar, :only => ["index", "show"]
+  before_filter :prepare_blog_sidebar, :only => ["index", "show"]
   
   def new
     @post = Post.new
@@ -47,12 +47,5 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.paginate :page => params[:page], :per_page => 7, :order => "created_at DESC"
-  end
-  
-  protected
-  
-  def prepare_sidebar
-    @post_categories = PostCategory.all
-    @latest_posts = Post.find :all, :limit => 7, :order => "created_at DESC", :conditions => ["published = ?", true]
   end
 end
