@@ -10,5 +10,6 @@ class PostCategoriesController < ApplicationController
   def show
     @post_category = PostCategory.find(params[:id])
     @posts = @post_category.posts.paginate :page => params[:page], :per_page => 7, :order => "created_at DESC"
+    @search = Post.search
   end
 end

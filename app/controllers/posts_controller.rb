@@ -40,12 +40,16 @@ class PostsController < ApplicationController
   def show
     begin
       @post = admin? ? Post.find(params[:id]) : Post.find(params[:id], :conditions => ["published = ?", true])
+      @search = Post.search
     rescue ActiveRecord::RecordNotFound
       render :action => "404"
     end
   end
   
   def index
-    @posts = Post.paginate :page => params[:page], :per_page => 7, :order => "created_at DESC"
+    @search = Post.search(params[:search])
+    @posts = @search.paginate :page => params[:page], :per_page => 7, :order => "created_at DESC"
+    
+    render :action => "404" if @posts.size == 0
   end
 end

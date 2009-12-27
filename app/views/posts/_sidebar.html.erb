@@ -4,9 +4,11 @@
     <a href="http://twitter.com/usejquery">Follow on Twitter</a>
   </div>
   
-  <form>
-    <div><input type="text" value="Search the Blog"></div>
-  </form>
+  <% form_for @search, :url => { :controller => "posts" } do |f| %>
+    <div>
+      <%= f.text_field :title_like, :value => search_value %>
+    </div>
+  <% end %>
   
   <ul>
     <li class="categories">
