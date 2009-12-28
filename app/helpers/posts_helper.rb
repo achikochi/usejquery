@@ -4,6 +4,6 @@ module PostsHelper
   end
   
   def search_value
-    params[:search] ? "Last Search: #{params[:search][:title_like_or_excerpt_like_or_content_like]}" : "Search the Blog"
+    params[:search] ? "Last Search: #{params[:search]}" : "Search the Blog"
   end
 end

@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   end
   
   def index
-    @search = Post.search(params[:search])
+    @search = Post.search(:title_like_or_excerpt_like_or_content_like => params[:search])
     @posts = @search.paginate :page => params[:page], :per_page => 7, :order => "created_at DESC"
     
     render :action => "404" if @posts.size == 0
