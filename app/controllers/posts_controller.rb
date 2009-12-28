@@ -40,7 +40,6 @@ class PostsController < ApplicationController
   def show
     begin
       @post = admin? ? Post.find(params[:id]) : Post.find(params[:id], :conditions => ["published = ?", true])
-      @search = Post.search
     rescue ActiveRecord::RecordNotFound
       render :action => "404"
     end
