@@ -12,6 +12,9 @@ ActionController::Routing::Routes.draw do |map|
   map.admin_logout "admin/logout", :controller => "admin_sessions", :action => "destroy"
   map.resources :admin_sessions
   
+  map.resources :sites
+  map.site_slug "/sites/:id/:slug", :controller => "sites", :action => "show"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

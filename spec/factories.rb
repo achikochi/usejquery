@@ -8,3 +8,7 @@ Factory.define :post do |f|
   f.content "And the main content."
   f.published false
 end
+
+Factory.define :site do |f|
+  f.name "Whatever"
+end

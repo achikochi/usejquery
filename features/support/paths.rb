@@ -17,6 +17,8 @@ module NavigationHelpers
     when /the show page for (.+)/ #http://railscasts.com/episodes/186-pickle-with-cucumber
       polymorphic_path(model($1)) 
     
+    
+    
     # Add more mappings here.
     # Here is a more fancy example:
     #
