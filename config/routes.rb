@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :post_categories
   map.post_category_slug '/posts/categories/:id/:slug', :controller => "post_categories", :action => "show"
   
+  map.resources :post_comments
+  
   map.admin_login "admin", :controller => "admin_sessions", :action => "new"
   map.admin_logout "admin/logout", :controller => "admin_sessions", :action => "destroy"
   map.resources :admin_sessions

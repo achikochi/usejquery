@@ -13,6 +13,3 @@ Feature: Post comments
     And I press "Create Comment"
     Then I should see "mustardamus"
     And I should see "This is a comment."
-  
-  
-  
