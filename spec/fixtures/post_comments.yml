@@ -10,6 +10,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  post_id    :integer
+#  published  :boolean
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

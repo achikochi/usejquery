@@ -19,15 +19,20 @@
   <div id="comments">
     <ol>
       <% @post_comments.each do |comment| %>
-        <li>
-          <%= comment.name %>
-          <%= comment.message %>
-        </li>
+        <% if comment.published || in_session_post_comments?(comment) %>
+          <li<% unless comment.published %> class="moderation"<% end %>>
+            <%= comment.name %>
+            <%= comment.message %>
+            <%= gravatar_image_tag(comment.email, :alt => "") %>
+            <% unless comment.published %><strong>Your Comment is awaiting moderation.</strong><% end %>
+          </li>
+        <% end %>
       <% end %>
     </ol>
     
     <%= render "post_comments/respond" %>
   </div>
+
 </div> <!-- #blog_single end -->
 
 

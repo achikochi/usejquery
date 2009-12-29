@@ -10,9 +10,11 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  post_id    :integer
+#  published  :boolean
 #
 
 class PostComment < ActiveRecord::Base
+  attr_protected :published
   belongs_to :post
   
   validates_presence_of :name, :email, :message, :post_id

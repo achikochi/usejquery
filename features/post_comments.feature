@@ -14,6 +14,7 @@ Feature: Post comments
     Then I should see "Successfully posted your Comment"
     And I should see "mustardamus"
     And I should see "This is a comment."
+    And I should see "Your Comment is awaiting moderation."
   
   Scenario: Post a invalid comment
     Given a post exists with published: true
