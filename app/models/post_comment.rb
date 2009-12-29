@@ -14,4 +14,8 @@
 
 class PostComment < ActiveRecord::Base
   belongs_to :post
+  
+  validates_presence_of :name, :email, :message, :post_id
+  validates_email_format_of :email, :message => "must be a valid e-mail address"
+  validates_url_format_of :url, :message => "must be a valid url"
 end

@@ -15,6 +15,20 @@
       <%= simple_format(@post.content) %>
     </div>
   </div><!-- .entry end -->
+  
+  <div id="comments">
+    <ol>
+      <% @post_comments.each do |comment| %>
+        <li>
+          <%= comment.name %>
+          <%= comment.message %>
+        </li>
+      <% end %>
+    </ol>
+    
+    <%= render "post_comments/respond" %>
+  </div>
 </div> <!-- #blog_single end -->
+
 
 <%= render "sidebar" %>

@@ -40,6 +40,8 @@ class PostsController < ApplicationController
   def show
     begin
       @post = admin? ? Post.find(params[:id]) : Post.find(params[:id], :conditions => ["published = ?", true])
+      @post_comments = @post.post_comments
+      @post_comment = @post.post_comments.new
     rescue ActiveRecord::RecordNotFound
       render :action => "404"
     end

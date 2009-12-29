@@ -1,0 +1,14 @@
+<% semantic_form_for @post_comment do |f| %>
+
+  <% f.inputs do %>
+    <%= f.input :post_id, :as => :hidden %>
+    <%= f.input :name %>
+    <%= f.input :email, :label => "E-Mail" %>
+    <%= f.input :url, :label => "URL" %>
+    <%= f.input :message %>
+  <% end %>
+  
+  <% f.buttons do %>
+    <%= f.commit_button "Post Comment" %>
+  <% end %>
+<% end %>
